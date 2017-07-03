@@ -1,184 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="moviesApp">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>A simple website package</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="as-is/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="as-is/prismjs/prism.css">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/vendor/vendor.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 
-<h1>Bootstrap is included</h1>
-
-<div class="row">
-    <div class="col-sm-6" style="border:1px solid red">Hello</div>
-    <div class="col-sm-6" style="border:1px solid blue">World</div>
+<div ng-controller="moviesCtrl">
+    <div ui-view></div>
 </div>
 
-<div class="row">
-    <div class="col-sm-6">
-        <h1>font-awesome</h1>
-        <p>font awesome is included, here's a <a href="http://fontawesome.io/cheatsheet/" target="_blank">cheatsheet for looking up symbols</a>.</p>
-    </div>
-</div>
 
-<pre><code class="language-markup">
-&lt;i class="fa fa-camera-retro fa-lg"&gt;&lt;/i&gt;
-&lt;i class="fa fa-camera-retro fa-2x"&gt;&lt;/i&gt;
-&lt;i class="fa fa-camera-retro fa-3x"&gt;&lt;/i&gt;
-&lt;i class="fa fa-camera-retro fa-4x"&gt;&lt;/i&gt;
-&lt;i class="fa fa-camera-retro fa-5x"&gt;&lt;/i&gt;
-</code></pre>
-
-<i class="fa fa-camera-retro fa-lg"></i>
-<i class="fa fa-camera-retro fa-2x"></i>
-<i class="fa fa-camera-retro fa-3x"></i>
-<i class="fa fa-camera-retro fa-4x"></i>
-<i class="fa fa-camera-retro fa-5x"></i>
-
-<h1>Owl carousel</h1>
-<p>Owl carousel is included</p>
-
-<h2>Markup</h2>
-<pre><code class="language-markup">
-&lt;div class="fruits owl-carousel owl-theme"&gt;
-    &lt;div class="fruit"&gt;apple&lt;/div&gt;
-    &lt;div class="fruit"&gt;orange&lt;/div&gt;
-    &lt;div class="fruit"&gt;banana&lt;/div&gt;
-    &lt;div class="fruit"&gt;strawberry&lt;/div&gt;
-    &lt;div class="fruit"&gt;cucumber&lt;/div&gt;
-    &lt;div class="fruit"&gt;pair&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-
-<h2>js</h2>
-<pre><code class="language-js">
-    $('.fruits').owlCarousel({
-        items: 2,
-        dots: true
-    })
-</code></pre>
-
-<div class="fruits owl-carousel owl-theme">
-    <div class="fruit">apple</div>
-    <div class="fruit">orange</div>
-    <div class="fruit">banana</div>
-    <div class="fruit">strawberry</div>
-    <div class="fruit">cucumber</div>
-    <div class="fruit">pair</div>
-</div>
-
-<h1>GSAP/TweenMax is included</h1>
-<p>You can use tweenmax to do some animations.</p>
-
-<input type="button" value="moveLeft" onclick="moveLeft()"> | <input type="button" value="moveRight" onclick="moveRight()">
-
-<br><br>
-
-<i class="click-to-animate fa fa-camera-retro fa-lg" style="position:relative;left:0;"></i>
-
-<pre><code class="language-js">
-    var tl = new TimelineMax();
-    tl.to('.click-to-animate', 1, {left:'+=200', ease: Power4.easeOut});
-</code></pre>
-
-<h1>A simple website package v2..</h1>
-
-<p>This is a simple website package powered by gulp ... will help you setup a dev site and develop faster!</p>
-<p>Once setup and running, the gulp watch command will launch a new browser window, and your html, sass and js files will be watched and upon any changes the browser will auto reload.</p>
-
-<h2>Current Features!</h2>
-
-<ul>
-    <li>gulp</li>
-    <li>sass</li>
-    <li>browser-sync</li>
-    <li>and more ...</li>
-</ul>
-
-<h2>Directory Structure</h2>
-
-<h3 id="msg1"></h3>
-
-<pre>
-    [.git] (ignored)
-    [node_modules] (ignored)
-    [build]
-    [src]
-        [css]
-        [images]
-        [js]
-            [site]
-            [vendor]
-        [scss]
-        index.html
-    .gitignore
-    bower.json
-    gulpfile.js
-    package.json
-</pre>
-
-<h2>How do the .js files work</h2>
-
-<p>There are two sub-directories in the src/js folder, 1) src/js/site, 2) src/js/vendor. The idea is that you put all your custom js files in #1 and all vendor/3rd party libraries in #2. The <b>gulp</b> task will watch for changes in these folders and on each save will create a concatenate and minified file for each folder and copy to the build folder. If you need a particular .js file to load before another, then specify that setting in gulpfile.js for the approrpriate task (either <b>scripts-site</b> or <b>scripts-vendor</b>)</p>
-<p>So for example you may start with:</p>
-<pre>
-    [src]
-        [js]
-            [site]
-                one.js
-                two.js
-                three.js
-            [vendor]
-                jquery.js
-                bootstrap.js
-                angular.js
-</pre>
-<p>On each save, the <b>grunt</b> task will create the following:</p>
-<pre>
-    [build]
-        [js]
-            site.min.js
-            vendor.min.js
-</pre>
-<p>Your markup files will reference these two minified files just before the closing body tag.</p>
-
-<h2>Timelinemax</h2>
-
-<p>testing</p>
-
-<ul>
-    <li><a href="bootstrap-grids.html">Example of bootstrap grids</a></li>
-</ul>
-
-
-<script src="js/vendor/vendor-bower.js"></script>
-<script src="js/site.min.js"></script>
-<script src="as-is/prismjs/prism.js"></script>
-
-<script>
-    $('.fruits').owlCarousel({
-        items: 2,
-        dots: true
-    })
-</script>
-
-<script>
-    // tweenmax example
-    function moveRight(){
-        var tl = new TimelineMax();
-        tl.to('.click-to-animate', .5, {left:'+=55', ease: Power4.easeOut});
-        tl.play();
-    }
-    function moveLeft(){
-        var tl = new TimelineMax();
-        tl.to('.click-to-animate', .5, {left:'-=55', ease: Power4.easeOut});
-        tl.play();
-    }
-</script>
-
+    <script src="js/vendor/vendor-bower.js"></script>
+    <script src="/js/angular-apps/moviesApp/moviesApp.min.js"></script>
 </body>
 </html>
