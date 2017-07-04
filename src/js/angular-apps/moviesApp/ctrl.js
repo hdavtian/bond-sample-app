@@ -47,7 +47,6 @@ moviesApp.controller('moviesCtrl', [
                 getAttrById: getAttrById
             }
         })();
-        // wtf
 
         var setMovieListPerTheater = function(theaterId){
 
@@ -68,7 +67,7 @@ moviesApp.controller('moviesCtrl', [
                     var showtimesArr = valuesToArray(Theaters[i].showtimes);
 
                     for (var n=0, len=showtimesArr.length; n<len; n++) {
-                        currentList.push({
+                        $scope.currentList.push({
                             id: Object.keys(Theaters[i].showtimes)[n],
                             title: Movie.getAttrById(Movies, Object.keys(Theaters[i].showtimes)[n], 'title'),
                             rating: Movie.getAttrById(Movies, Object.keys(Theaters[i].showtimes)[n], 'rating'),
@@ -79,6 +78,21 @@ moviesApp.controller('moviesCtrl', [
                     }
                 }
             }
+        };
+
+        $scope.getPacificMovies = function(){
+            $scope.currentList = [];
+            setMovieListPerTheater('58f3356c0ffe87bcb324454056587b67')
+        };
+
+        $scope.getArclightMovies = function(){
+            $scope.currentList = [];
+            setMovieListPerTheater('2030c64ce72b4e4605cb01f2ba405b7d')
+        };
+
+        $scope.getAmcMovies = function(){
+            $scope.currentList = [];
+            setMovieListPerTheater('af3de16703f2af385a6941de07f076a0')
         };
 
         var getMoviesInfo = function(){
@@ -150,3 +164,5 @@ moviesApp.controller('moviesCtrl', [
 
     }]
 );
+//123
+//234

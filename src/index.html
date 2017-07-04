@@ -31,21 +31,25 @@
         <hr>
     </div>
 
+    <ul>
+        <li><a ng-click="getArclightMovies()">Archlight</a></li>
+        <li><a ng-click="getAmcMovies()">AMC</a></li>
+        <li><a ng-click="getPacificMovies()">Pacific</a></li>
+
+    </ul>
+
     <h1>Showtimes for Arclight</h1>
 
-    <div ng-repeat="archMovies in currentList">
-        {{archMovies.id}}<br>
-        {{archMovies.title}}<br>
-        {{archMovies.rating}}<br>
-        {{archMovies.poster}}<br>
-        {{archMovies.showtimes}}<br>
+    <div ng-repeat="_movies in currentList">
+        {{_movies.id}}<br>
+        {{_movies.title}}<br>
+        {{_movies.rating}}<br>
+        {{_movies.poster}}<br>
+        {{_movies.showtimes}}<br>
         <hr>
     </div>
 
-
-
 </div>
-
 
     <script src="js/vendor/vendor-bower.js"></script>
     <script src="/js/angular-apps/moviesApp/moviesApp.min.js"></script>
