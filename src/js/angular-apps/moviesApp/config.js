@@ -6,12 +6,16 @@ moviesApp.config([
         $urlRouterProvider)
         {
 
-        $urlRouterProvider.otherwise('/home');
+            /*
+        $urlRouterProvider.otherwise('/archlight');
 
         $stateProvider
-            .state('home', {
-                url: '/home',
-                templateUrl: 'js/angular-apps/moviesApp/partials/_movies-list.html'
-        });
+            .state('archlight', {
+                url: '/archlight/:theaterId',
+                templateUrl: 'js/angular-apps/moviesApp/partials/_movies-list.html',
+                controller: ['$rootScope', function($rootScope){
+
+                }]
+        });*/
     }
 ]);

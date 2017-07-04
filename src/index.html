@@ -12,7 +12,38 @@
 <body>
 
 <div ng-controller="moviesCtrl">
-    <div ui-view></div>
+
+    <h1>All Movies</h1>
+
+    <div ng-repeat="movie in Movies">
+        {{movie.title}} <br>
+        {{movie.id}} <br>
+        {{movie.rating}} <br>
+        {{movie.poster}}
+        <hr>
+    </div>
+
+    <h1>All Theaters</h1>
+
+    <div ng-repeat="theater in Theaters">
+        {{theater.name}}<br>
+        {{theater.id}}
+        <hr>
+    </div>
+
+    <h1>Showtimes for Arclight</h1>
+
+    <div ng-repeat="archMovies in currentList">
+        {{archMovies.id}}<br>
+        {{archMovies.title}}<br>
+        {{archMovies.rating}}<br>
+        {{archMovies.poster}}<br>
+        {{archMovies.showtimes}}<br>
+        <hr>
+    </div>
+
+
+
 </div>
 
 
