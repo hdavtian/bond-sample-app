@@ -11,42 +11,38 @@
 </head>
 <body>
 
-<div ng-controller="moviesCtrl">
+<div class="movie-app-wrapper" ng-controller="moviesCtrl">
 
-    <h1>All Movies</h1>
-
-    <div ng-repeat="movie in Movies">
-        {{movie.title}} <br>
-        {{movie.id}} <br>
-        {{movie.rating}} <br>
-        {{movie.poster}}
-        <hr>
+    <div class="search-box-wrapper">
+        <input type="text" ng-model="searchText" placeholder="Search movies...">
     </div>
 
-    <h1>All Theaters</h1>
+    <nav>
+        <ul>
+            <li><a ng-click="getArclightMovies()" class="active">ARCLIGHT</a></li>
+            <li><a ng-click="getPacificMovies()">PACIFIC THEATERS</a></li>
+            <li><a ng-click="getAmcMovies()">AMC</a></li>
+        </ul>
+    </nav>
 
-    <div ng-repeat="theater in Theaters">
-        {{theater.name}}<br>
-        {{theater.id}}
-        <hr>
-    </div>
+    <div class="movies-wrapper">
+        <div class="movie row" ng-repeat="_movies in currentList | filter:searchText">
 
-    <ul>
-        <li><a ng-click="getArclightMovies()">Archlight</a></li>
-        <li><a ng-click="getAmcMovies()">AMC</a></li>
-        <li><a ng-click="getPacificMovies()">Pacific</a></li>
+            <div class="movie-poster col-xs-2">
+                <img ng-src="{{_movies.poster}}" alt="{{_movies.title}}" class="img-responsive">
+            </div>
 
-    </ul>
+            <div class="movie-info col-xs-10">
+                <h1 class="movie-title">
+                    {{_movies.title}}
+                    <span class="movie-rating">({{_movies.rating}})</span>
+                </h1>
 
-    <h1>Showtimes for Arclight</h1>
-
-    <div ng-repeat="_movies in currentList">
-        {{_movies.id}}<br>
-        {{_movies.title}}<br>
-        {{_movies.rating}}<br>
-        {{_movies.poster}}<br>
-        {{_movies.showtimes}}<br>
-        <hr>
+                <div class="movie-showtimes">
+                    {{_movies.showtimes}}
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

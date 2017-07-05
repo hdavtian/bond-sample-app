@@ -19,5 +19,3 @@ moviesApp.config([
         });*/
     }
 ]);
-
-//123

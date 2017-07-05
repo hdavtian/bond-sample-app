@@ -7,8 +7,6 @@ moviesApp.controller('moviesCtrl', [
         $rootScope,
         $http
     ){
-        $rootScope.msg = 'harmad';
-        $scope.msg = 'harma';
 
         var Theaters = [];
         $scope.Theaters = Theaters;
