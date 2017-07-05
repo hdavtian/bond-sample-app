@@ -3,19 +3,34 @@ moviesApp.config([
     '$urlRouterProvider',
     function(
         $stateProvider,
-        $urlRouterProvider)
-        {
+        $urlRouterProvider) {
 
-            /*
-        $urlRouterProvider.otherwise('/archlight');
+            $urlRouterProvider.otherwise('/arclight');
 
-        $stateProvider
-            .state('archlight', {
-                url: '/archlight/:theaterId',
-                templateUrl: 'js/angular-apps/moviesApp/partials/_movies-list.html',
-                controller: ['$rootScope', function($rootScope){
+            $stateProvider
 
-                }]
-        });*/
+                .state('arclight', {
+                    url: '/arclight',
+                    templateUrl: '/js/angular-apps/moviesApp/templates/movie-list.html',
+                    controller: ['$rootScope', function($rootScope){
+                        //12345
+                    }]
+                })
+
+                .state('amc', {
+                    url: '/amc',
+                    templateUrl: '/js/angular-apps/moviesApp/templates/movie-list.html',
+                    controller: ['$rootScope', function($rootScope){
+                        //12345
+                    }]
+                })
+
+                .state('pacific', {
+                    url: '/pacific',
+                    templateUrl: '/js/angular-apps/moviesApp/templates/movie-list.html',
+                    controller: ['$rootScope', function($rootScope){
+                        //12345
+                    }]
+                });
     }
 ]);

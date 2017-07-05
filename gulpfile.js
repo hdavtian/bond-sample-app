@@ -111,10 +111,10 @@ gulp.task('angular-apps-js', folders(config.src.angularApps, function(folder){
 
     var app = gulp.src(path.join(config.src.angularApps, folder, 'app.js'));
     var appConfig = gulp.src(path.join(config.src.angularApps, folder, 'config.js'));
-    var appDirectives = gulp.src(path.join(config.src.angularApps, folder, 'directives/**/*.js'));
+    //var appDirectives = gulp.src(path.join(config.src.angularApps, folder, 'directives/**/*.js'));
     var appCtrl = gulp.src(path.join(config.src.angularApps, folder, 'ctrl.js'));
 
-    var stream = merge(app, appConfig, appDirectives, appCtrl);
+    var stream = merge(app, appConfig, /*appDirectives,*/ appCtrl);
     return stream
         .pipe(uglify())
         .pipe(concat(folder + '.js'))
@@ -141,15 +141,15 @@ gulp.task('angular-apps-js-vendor', folders(config.src.angularApps, function(fol
 }));
 
 // ===========================================================================================
-// Task Name: angular-apps-partials
-// Description: copy html files within each ngApp partials to destination
+// Task Name: angular-apps-templates
+// Description: copy html files within each ngApp templates to destination
 // ===========================================================================================
 
-gulp.task('angular-apps-partials', folders(config.src.angularApps, function(folder){
+gulp.task('angular-apps-templates', folders(config.src.angularApps, function(folder){
 
     // copy all .html files to appropriate app folder
-    return gulp.src(path.join(config.src.angularApps, folder, 'partials/**/*.html'))
-        .pipe(gulp.dest(path.join(config.dest.angularApps, folder, 'partials')))
+    return gulp.src(path.join(config.src.angularApps, folder, 'templates/**/*.html'))
+        .pipe(gulp.dest(path.join(config.dest.angularApps, folder, 'templates')))
         .pipe(reload({ stream: true }));
 
 }));
@@ -311,7 +311,7 @@ gulp.task('watch', ['browser-sync'], function () {
     gulp.watch('src/**/*.html', ['html']);
     gulp.watch('src/images/**/*.*', ['images']);
     gulp.watch('src/js/angular-apps/**/*.js', ['angular-apps-js']);
-    gulp.watch('src/js/angular-apps/**/*.html', ['angular-apps-partials']);
+    gulp.watch('src/js/angular-apps/**/*.html', ['angular-apps-templates']);
     gulp.watch('src/js/angular-apps/**/*.json', ['angular-apps-json']);
 });
 
@@ -329,7 +329,7 @@ gulp.task('default', [
     'browser-sync',
     'angular-apps-js',
     'angular-apps-js-vendor',
-    'angular-apps-partials',
+    'angular-apps-templates',
     'angular-apps-json',
     'watch'
 ]);
@@ -347,7 +347,7 @@ gulp.task('build', [
     'main-bower-files',
     'angular-apps-js',
     'angular-apps-js-vendor',
-    'angular-apps-partials',
+    'angular-apps-templates',
     'angular-apps-json'
 ]);
 

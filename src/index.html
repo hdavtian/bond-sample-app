@@ -19,31 +19,13 @@
 
     <nav>
         <ul>
-            <li><a ng-click="getArclightMovies()" class="active">ARCLIGHT</a></li>
-            <li><a ng-click="getPacificMovies()">PACIFIC THEATERS</a></li>
-            <li><a ng-click="getAmcMovies()">AMC</a></li>
+            <li><a ng-click="getArclightMovies()" ui-sref="arclight" ui-sref-active="active">ARCLIGHT</a></li>
+            <li><a ng-click="getPacificMovies()" ui-sref="pacific" ui-sref-active="active">PACIFIC THEATERS</a></li>
+            <li><a ng-click="getAmcMovies()" ui-sref="amc" ui-sref-active="active">AMC</a></li>
         </ul>
     </nav>
 
-    <div class="movies-wrapper">
-        <div class="movie row" ng-repeat="_movies in currentList | filter:searchText">
-
-            <div class="movie-poster col-xs-2">
-                <img ng-src="{{_movies.poster}}" alt="{{_movies.title}}" class="img-responsive">
-            </div>
-
-            <div class="movie-info col-xs-10">
-                <h1 class="movie-title">
-                    {{_movies.title}}
-                    <span class="movie-rating">({{_movies.rating}})</span>
-                </h1>
-
-                <div class="movie-showtimes">
-                    {{_movies.showtimes}}
-                </div>
-            </div>
-        </div>
-    </div>
+    <div ui-view></div>
 
 </div>
 
