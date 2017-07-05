@@ -2,5 +2,10 @@
 @import 'general/_variables';
 @import 'general/_mixins';
 @import 'general/_reset';
-@import 'general/_temp';
+
+// site
+@import 'general/_base';
+@import 'general/_searchbox';
+@import 'general/_nav';
+@import 'general/_movies';
 

@@ -1,0 +1,11 @@
+body {
+  background: map_get($colors, light-grey);
+  font-family: arial, helvetica, "times new roman", sans-serif;
+  font-size: 1em;
+}
+
+// site wrapper
+.movie-app-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+}

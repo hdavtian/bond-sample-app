@@ -1,0 +1,12 @@
+.search-box-wrapper {
+
+  margin: 20px 0;
+  @include grey-box-shadow;
+
+  input {
+    width: 100%;
+    padding: 5px 5px 5px 8px;
+    font-size: 1.3em;
+    border: 1px solid map_get($colors, orange);
+  }
+}//search-box-wrapper
